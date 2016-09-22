@@ -8,7 +8,7 @@ metadata:
 spec:
   restartPolicy: Always
   containers: 
-    - image: "pieghost/apostrophe"
+    - image: "pieghost/apostrophe-docker"
       name: "apostrophe"
       ports:
       - containerPort: 3000
