@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apostrophe
+  labels: 
+    name: apostrophe
+    app: apostrophe
+spec:
+  restartPolicy: Always
+  containers: 
+    - image: "pieghost/apostrophe"
+      name: "apostrophe"
+      ports:
+      - containerPort: 3000
+        name: apostrophe
+      env:
+      - name: APOSTROPHE_USER
+        value: ${apostrophe_db_user}
+      - name: APOSTROPHE_PASSWORD
+        value: ${apostrophe_db_pass}
+      - name: APOSTROPHE_DB
+        value: ${apostrophe_db}
+      - name: APOSTROPHE_URL
+        value: ${apostrophe_url}
+      volumeMounts:
+        - name: "apostrophe-ephemeral-storage"
+          mountPath: /var/lib/apostrophe
+  volumes:
+    - name: "apostrophe-ephemeral-storage"
+      emptyDir: {}
+

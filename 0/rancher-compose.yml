@@ -1,0 +1,16 @@
+.catalog:
+  name: Apostrophe
+  version: 2.0.0-rancher1
+  description: Apostrophe CMS
+  questions:
+    - variable: "sec_no"
+      label: "Number of MongoDB Secondary nodes"
+      required: true
+      type: int
+      default: 2
+      description: "should be even number"
+    - variable: "nginx_no"
+      label: "Number of nginx nodes"
+      required: true
+      type: int
+      default: 3

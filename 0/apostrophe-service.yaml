@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: apostrophe-lb
+  name: apostrophe-lb
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+  selector:
+    name: apostrophe
+    app: apostrophe
+  type: LoadBalancer
+
