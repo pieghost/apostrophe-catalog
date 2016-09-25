@@ -10,21 +10,18 @@ spec:
       labels:
         app: resilio
     spec:
-      # nodeSelector:
-      #  app: resilio
-      hostPID: true
-      hostIPC: true
+      nodeSelector:
+        app: resilio
       containers:
         - name: resilio
-          securityContext:
-            privileged: true
+          # securityContext:
+          #   privileged: true
           env:
             - name: SYNC_SECRET
               value: ${sync_secret}
           image: pieghost/resilio-docker
           ports:
             - containerPort: 55555
-              hostPort: 55555
               name: resilio-peers
           volumeMounts:
             - mountPath: /data
