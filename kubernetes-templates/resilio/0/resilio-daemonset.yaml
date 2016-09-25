@@ -10,8 +10,8 @@ spec:
       labels:
         app: resilio
     spec:
-      nodeSelector:
-        app: resilio
+      # nodeSelector:
+      #   app: resilio
       containers:
         - name: resilio
           # securityContext:
