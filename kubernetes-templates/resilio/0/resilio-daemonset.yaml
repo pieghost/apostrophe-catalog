@@ -28,9 +28,9 @@ spec:
             - containerPort: 55555
               name: resilio-peers
           volumeMounts:
-            - name: storage
-              mountPath: /data/storage
+            - name: data
+              mountPath: /data
       volumes:
-        - name: storage
+        - name: data
           hostPath:
-            path: /data/storage
+            path: /data
