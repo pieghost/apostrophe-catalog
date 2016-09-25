@@ -1,0 +1,10 @@
+.catalog:
+  name: Resilio Sync
+  version: 2.4.0-rancher1
+  description: Resilio Sync (previously BitTorrent Sync)
+  questions:
+    - variable: "sync_secret"
+      label: "Secret for sync storage"
+      required: true
+      type: "string"
+      description: "Generate with `docker run --rm -e SYNC_SECRET='NONE' pieghost/resilio-docker --generate-secret`"

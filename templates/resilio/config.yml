@@ -1,0 +1,4 @@
+name: Resilio
+description: Resilio Sync (previously BitTorrent Sync)
+version: 2.4.0-rancher1
+category: Storage
