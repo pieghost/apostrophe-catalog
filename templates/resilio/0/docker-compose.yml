@@ -1,9 +1,11 @@
 resilio:
   image: pieghost/resilio-docker
   labels:
-    io.rancher.scheduler.global: "true"
+    io.rancher.scheduler.global: true
+  environment:
+    SYNC_SECRET: ${sync_secret}
   ports:
     - "55555:55555"
   volumes:
-    - /data:/data
+    - /data/:/data
   restart: always
