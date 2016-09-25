@@ -24,13 +24,13 @@ spec:
               value: ${sync_secret}
           image: pieghost/resilio-docker
           name: resilio
-    ports:
-      - containerPort: 55555
-        name: resilio-peers
-    volumeMounts:
-      - name: storage
-        mountPath: /data/storage
-    volumes:
-      - name: storage
-        hostPath:
-          path: /data/storage
+          ports:
+            - containerPort: 55555
+              name: resilio-peers
+          volumeMounts:
+            - name: storage
+              mountPath: /data/storage
+      volumes:
+        - name: storage
+          hostPath:
+            path: /data/storage
