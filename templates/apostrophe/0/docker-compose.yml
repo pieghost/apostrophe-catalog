@@ -1,5 +1,5 @@
 apostrophe:
   image: "pieghost/apostrophe-docker"
   volumes:
-    - /data/storage:/app/public/uploads
+    - /data/storage/public:/app/public
 
