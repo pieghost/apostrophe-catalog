@@ -20,10 +20,12 @@ spec:
           image: pieghost/resilio-docker
           ports:
             - containerPort: 55555
+              hostPort: 55555
               name: resilio-peers
           volumeMounts:
             - mountPath: /data
               name: storage
+              readOnly: false
       volumes:
         - name: storage
           hostPath:
