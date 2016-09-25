@@ -1,7 +1,5 @@
 apostrophe:
   image: "pieghost/apostrophe-docker"
-  ports:
-    - 3000
   volumes:
     - /data/storage:/app/public/uploads
 
