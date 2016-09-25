@@ -12,6 +12,7 @@ spec:
     spec:
       # nodeSelector:
       #  app: resilio
+      hostIPC: true
       containers:
         - name: resilio
           env:
