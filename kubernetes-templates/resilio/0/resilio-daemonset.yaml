@@ -17,8 +17,8 @@ spec:
         - resources:
             requests:
               cpu: 0.15
-          securityContext:
-            privileged: true
+          #securityContext:
+          #  privileged: true
           env:
             - name: SYNC_SECRET
               value: ${sync_secret}
