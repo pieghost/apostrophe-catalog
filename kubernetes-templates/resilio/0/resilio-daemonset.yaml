@@ -1,0 +1,36 @@
+apiVersion: extension/v1beta1
+kind: DaemonSet
+metadata:
+  name: resilio
+  labels:
+    tier: storage
+    app: resilio
+spec:
+  template:
+    metadata:
+      labels:
+        app: resilio
+    spec:
+      # nodeSelector:
+      #  app: resilio
+      containers:
+        - resources:
+            requests:
+              cpu: 0.15
+          securityContext:
+            privileged: true
+          env:
+            - name: SYNC_SECRET
+	      value: ${sync_secret}
+          image: pieghost/resilio-docker
+          name: resilio
+	  ports:
+	    - containerPort: 55555
+	    name: resilio-peers
+          volumeMounts:
+            - name: storage
+              mountPath: /data/storage
+      volumes:
+        - name: storage
+          hostPath:
+              path: /data/storage
