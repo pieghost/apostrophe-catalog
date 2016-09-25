@@ -1,0 +1,16 @@
+.catalog:
+  name: Apostrophe
+  version: 2.0.0-rancher1
+  description: Apostrophe CMS
+  uuid: apostrophe-0
+
+apostrophe:
+  scale: 3
+  retain_ip: true
+  health_check:
+    port: 80
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
