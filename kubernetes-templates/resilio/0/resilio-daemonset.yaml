@@ -12,6 +12,7 @@ spec:
     spec:
       # nodeSelector:
       #  app: resilio
+      hostPID: true
       hostIPC: true
       containers:
         - name: resilio
@@ -28,6 +29,7 @@ spec:
               name: storage
               readOnly: false
       volumes:
-        - name: storage
-          hostPath:
+        - hostPath:
             path: /data
+          name: storage
+
