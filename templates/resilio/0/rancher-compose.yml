@@ -2,6 +2,7 @@
   name: Resilio Sync
   version: 2.4.0-rancher1
   description: Resilio Sync (previously BitTorrent Sync)
+  uuid: resilio-0
   questions:
     - variable: "sync_secret"
       label: "Secret for sync storage"
