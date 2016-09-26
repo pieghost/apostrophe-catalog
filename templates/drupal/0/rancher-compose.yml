@@ -21,14 +21,14 @@ nginx:
     healthy_threshold: 2
 
 php-fpm:
-  scale: 1
-#  health_check:
-#    port: 9000
-#    interval: 30000
-#    unhealthy_threshold: 3
-#    strategy: recreate
-#    response_timeout: 10000
-#    healthy_threshold: 2
+  scale: 3
+  health_check:
+    port: 9000
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 10000
+    healthy_threshold: 2
 
 # drupal: TODO
 
