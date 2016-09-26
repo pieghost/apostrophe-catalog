@@ -4,7 +4,6 @@ php-fpm:
   image: php:7-fpm
   volumes:
     - /data/storage/www/:/var/www
-  restart: always
 
 nginx:
   image: nginx:alpine
@@ -13,6 +12,4 @@ nginx:
     - /data/storage/conf.d/:/etc/nginx/conf.d:ro
     - /data/storage/www/:/var/www
     # - /data/storage/certs/:/etc/letsencrypt/production/certs
-  links:
-    - php-fpm
 
