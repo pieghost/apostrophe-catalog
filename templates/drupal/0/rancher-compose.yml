@@ -1,6 +1,6 @@
 .catalog:
   name: drupal + nginx + php-fpm
-  version: 7.0-rancher1
+  version: 8.0-rancher1
   description: drupal + nginx + php-fpm
   uuid: drupal-0
   questions:
