@@ -5,10 +5,28 @@
   uuid: drupal-0
   questions:
     - variable: "domain_name"
+      description: "Domain name of this website"
       label: "Domain name of this website"
       required: true
       type: "string"
-      description: "Domain name of this website"
+    - variable: "ssl_cert"
+      description: "SSL certificate"
+      label: "SSL certificate:"
+      required: false
+      default: ""
+      type: "certificate"
+
+nginx-lb:
+  scale: 1
+  load_balancer_config:
+    name: nginx-lb
+  default_cert: ${ssl_cert}
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000
 
 nginx:
   scale: 3
@@ -19,6 +37,17 @@ nginx:
     strategy: recreate
     response_timeout: 10000
     healthy_threshold: 2
+
+php-lb:
+  scale: 1
+  load_balancer_config:
+    name: php-lb
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000
 
 php-fpm:
   scale: 3
@@ -31,4 +60,3 @@ php-fpm:
     healthy_threshold: 2
 
 # drupal: TODO
-
