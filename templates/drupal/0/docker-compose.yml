@@ -25,7 +25,7 @@ php-fpm:
   image: pieghost/php-alpine-mysql
   volumes:
     - /data/storage/www/:/var/www/html
-  external-links:
+  external_links:
     - percona/percona-lb:percona-lb
 
 php-lb:
