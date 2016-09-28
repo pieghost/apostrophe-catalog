@@ -18,6 +18,7 @@ nginx-lb:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.loadbalancer.ssl.ports: '443'
+    io.rancher.scheduler.affinity:host_label_ne: ports_available=false
 
 php-fpm:
   image: pieghost/php-alpine-mysql
