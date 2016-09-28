@@ -26,6 +26,8 @@ php-fpm:
     - ${webroot_path}:/var/www/html
   external_links:
     - percona/percona-lb:percona-lb
+  labels:
+    io.rancher.container.pull_image: always
 
 php-lb:
   image: rancher/load-balancer-service
