@@ -1,19 +1,33 @@
 .catalog:
-  name: drupal + nginx + php-fpm
+  name: nginx + php-fpm
   version: 8.0-rancher1
-  description: drupal + nginx + php-fpm
-  uuid: drupal-0
+  description: nginx + php-fpm
+  uuid: nginx-0
   questions:
     - variable: "domain_name"
       label: "Domain name of this website"
       description: "Domain name of this website"
       type: "string"
       required: true
+    - variable: "nginx_confd_path"
+      label: Host path of conf.d folder for nginx
+      description: |
+        e.g: `/etc/nginx/conf.d`
+      type: string
+      required: true
+      default: "/var/lib/resilio/storage/conf.d"
+    - variable: "webroot_path"
+      label: Host path of /var/www/html folder for nginx and php-fpm
+      description: |
+        e.g: `/var/www`
+      type: string
+      required: true
+      default: "/var/lib/resilio/storage/www"
     - variable: "ssl_cert"
       label: "SSL certificate"
       description: "SSL certificate"
       type: "certificate"
-      required: false
+      required: true
       default: ""
 
 nginx-lb:
@@ -58,5 +72,3 @@ php-fpm:
     strategy: recreate
     response_timeout: 10000
     healthy_threshold: 2
-
-# drupal: TODO

@@ -1,0 +1,4 @@
+name: nginx + php-fpm
+description: nginx + php-fpm
+version: "5.6"
+category: Load Balancing
