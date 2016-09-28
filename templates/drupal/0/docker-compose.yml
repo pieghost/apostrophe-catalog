@@ -5,7 +5,8 @@ nginx:
   volumes:
     - /data/storage/conf.d/:/etc/nginx/conf.d:ro
     - /data/storage/www/:/var/www/html
-    # - /data/storage/certs/:/etc/letsencrypt/production/certs
+  links:
+    - php-lb:php-lb
 
 nginx-lb:
   image: rancher/load-balancer-service
@@ -24,11 +25,13 @@ php-fpm:
   image: pieghost/php-alpine-mysql
   volumes:
     - /data/storage/www/:/var/www/html
+  external-links:
+    - percona/percona-lb:percona-lb
 
 php-lb:
   image: rancher/load-balancer-service
   expose:
-    - 9000:9000
+    - 9000:9000/tcp
   tty: true
   stdin_open: true
   links:

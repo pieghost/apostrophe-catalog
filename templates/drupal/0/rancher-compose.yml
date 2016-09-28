@@ -5,16 +5,16 @@
   uuid: drupal-0
   questions:
     - variable: "domain_name"
-      description: "Domain name of this website"
       label: "Domain name of this website"
-      required: true
+      description: "Domain name of this website"
       type: "string"
+      required: true
     - variable: "ssl_cert"
+      label: "SSL certificate"
       description: "SSL certificate"
-      label: "SSL certificate:"
+      type: "certificate"
       required: false
       default: ""
-      type: "certificate"
 
 nginx-lb:
   scale: 1
