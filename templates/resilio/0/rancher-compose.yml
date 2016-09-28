@@ -4,6 +4,15 @@
   description: Resilio Sync (previously BitTorrent Sync)
   uuid: resilio-0
   questions:
+    - variable: "host_path"
+      label: Host path of /data folder to sync
+      description: |
+        A `storage` and `system` folders will be created for Resilio.
+        Everything under the `storage` folder will be synced across hosts.
+        e.g: `/var/lib/resilio`
+      type: string
+      required: true
+      default: "/var/lib/resilio"
     - variable: "sync_secret"
       label: "Secret for sync storage"
       required: true

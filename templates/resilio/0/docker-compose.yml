@@ -7,5 +7,5 @@ resilio:
   ports:
     - "55555:55555"
   volumes:
-    - /data/:/data
+    - ${host_path}:/data
   restart: always
