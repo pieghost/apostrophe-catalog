@@ -1,6 +1,6 @@
 .catalog:
   name: nginx + php-fpm
-  version: 5.6-rancher1
+  version: 5.6-rancher2
   description: nginx + php-fpm
   uuid: nginx-0
   questions:
