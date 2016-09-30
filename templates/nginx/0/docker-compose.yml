@@ -5,6 +5,10 @@ nginx:
     - ${webroot_path}:/var/www/html
   links:
     - php-lb:php-lb
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:host_label_ne: webserver=false
 
 nginx-lb:
   image: rancher/load-balancer-service
@@ -18,6 +22,7 @@ nginx-lb:
   labels:
     io.rancher.scheduler.global: 'true'
     io.rancher.loadbalancer.ssl.ports: '443'
+    io.rancher.scheduler.affinity:host_label_ne: webserver=false
     io.rancher.scheduler.affinity:host_label_ne: ports_available=false
 
 php-fpm:
@@ -28,6 +33,8 @@ php-fpm:
     - percona/percona-lb:percona-lb
   labels:
     io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:host_label_ne: webserver=false
 
 php-lb:
   image: rancher/load-balancer-service
@@ -39,3 +46,5 @@ php-lb:
     - php-fpm:php-fpm
   labels:
     io.rancher.scheduler.global: 'true'
+    io.rancher.scheduler.affinity:host_label_ne: webserver=false
+
